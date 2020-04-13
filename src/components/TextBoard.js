@@ -2,6 +2,8 @@ import React, { useState, useEffect, createRef } from "react";
 import styled from "styled-components";
 import DrawingBoard from "./DrawingBoard";
 
+// Cursore disegno
+
 export default () => {
 
   const colors = ["#000", "#f00", "#080", "#00f"];
@@ -52,14 +54,24 @@ export default () => {
       }
     } else {
       switch (event.which) {
-        case 68:
+        case 80:
           event.preventDefault();
-          if (!drawing) boardRef.current.innerHTML = "";
-          setClearDrawing(!clearDrawing) 
+          window.getSelection().selectAllChildren(boardRef.current);
+          document.execCommand("delete");
+          boardRef.current.innerHTML = "";
+          setClearDrawing(!clearDrawing);
+          break;
+        case 81:
+          event.preventDefault();
+          setClearDrawing(!clearDrawing);
           break;
         case 83:
           event.preventDefault();
           document.execCommand("strikeThrough");
+          break;
+        case 68:
+          event.preventDefault();
+          document.execCommand("underline");
           break;
         default:
           break;

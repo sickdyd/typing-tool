@@ -13,11 +13,14 @@ Bold: Control + b
 
 Italic: Control + i
 
-Underline: Control + u
+Underline: Control + u / Control + d
 
 Strikethrough: Control + s
 
-Delete: Control + d
+Delete text and drawing: Control + p
+
+Delete drawing: Control + q
+
 ```
 > NOTE: while in text mode, Control + d will delete both the text and the drawing; when in drawing mode, it will delete only the drawing.
 
