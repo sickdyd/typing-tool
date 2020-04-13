@@ -1,9 +1,7 @@
 import React, { createRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
-export default ({ clearDrawing, color, drawing }) => {
-
-  const [brushSize, setBrushSize] = useState(5);
+export default ({ clearDrawing, color, drawing, brushSize }) => {
 
   const canvasRef = createRef();
   let mouseDown = false;
@@ -15,6 +13,7 @@ export default ({ clearDrawing, color, drawing }) => {
       const ctx = canvasRef.current.getContext("2d");
       ctx.beginPath();
       ctx.strokeStyle = color;
+      console.log(brushSize);
       ctx.lineWidth = brushSize;
       ctx.lineJoin = "round";
       ctx.moveTo(clientX, clientY);
@@ -32,12 +31,6 @@ export default ({ clearDrawing, color, drawing }) => {
 
   const handleMouseUp = () =>
     mouseDown = false;
-
-  const handleWheel = (event) => {
-    event.nativeEvent.wheelDelta > 0
-    ? (brushSize > 1) && setBrushSize(brushSize - 4)
-    : (brushSize < 200) && setBrushSize(brushSize + 4)
-  }
 
   useEffect(() =>
     canvasRef.current.getContext("2d")
@@ -59,7 +52,6 @@ export default ({ clearDrawing, color, drawing }) => {
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
-        onWheel={handleWheel}
       />
     </>
   )
