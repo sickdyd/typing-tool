@@ -28,3 +28,5 @@ Press TAB to cycle through the available colors.
 ## Drawing mode
 
 Middle mouse click will toggle between text mode and drawing mode.
+
+To change the size of the brush use the mouse wheel.

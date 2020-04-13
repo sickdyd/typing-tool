@@ -41,7 +41,9 @@ export default ({ clearDrawing, color, drawing }) => {
 
   useEffect(() =>
     canvasRef.current.getContext("2d")
-      .clearRect(0, 0, canvasRef.current.width, canvasRef.current.height), [clearDrawing])
+      .clearRect(0, 0, canvasRef.current.width, canvasRef.current.height),
+      // eslint-disable-next-line
+      [clearDrawing])
 
   return (
     <>
