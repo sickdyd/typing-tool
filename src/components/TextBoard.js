@@ -41,11 +41,11 @@ export default () => {
   const handleKeydown = (event) => {
     if (!event.ctrlKey) {
       switch (event.which) {
-        case 9:
+        case 9: // tab
           event.preventDefault();
           cycleColors();
           break;
-        case 13:
+        case 13: // return
           if (document.queryCommandState("strikeThrough")) document.execCommand("strikeThrough");
           break;
         default:
@@ -54,22 +54,22 @@ export default () => {
       }
     } else {
       switch (event.which) {
-        case 80:
+        case 80: // ctrl + p
           event.preventDefault();
           window.getSelection().selectAllChildren(boardRef.current);
           document.execCommand("delete");
           boardRef.current.innerHTML = "";
           setClearDrawing(!clearDrawing);
           break;
-        case 81:
+        case 81: // ctrl + q
           event.preventDefault();
           setClearDrawing(!clearDrawing);
           break;
-        case 83:
+        case 83: // ctrl + s
           event.preventDefault();
           document.execCommand("strikeThrough");
           break;
-        case 68:
+        case 68: // ctrl + d
           event.preventDefault();
           document.execCommand("underline");
           break;

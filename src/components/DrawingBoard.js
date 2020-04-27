@@ -13,7 +13,6 @@ export default ({ clearDrawing, color, drawing, brushSize }) => {
       const ctx = canvasRef.current.getContext("2d");
       ctx.beginPath();
       ctx.strokeStyle = color;
-      console.log(brushSize);
       ctx.lineWidth = brushSize;
       ctx.lineJoin = "round";
       ctx.moveTo(clientX, clientY);
@@ -40,18 +39,18 @@ export default ({ clearDrawing, color, drawing, brushSize }) => {
 
   return (
     <>
-      <Canvas
-        className="board"
-        width={window.innerWidth}
-        height={window.innerHeight}
-        ref={canvasRef}
-      />
       <EventsBoard
         className="board"
         drawing={drawing}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+      />
+      <Canvas
+        className="board"
+        width={window.innerWidth}
+        height={window.innerHeight}
+        ref={canvasRef}
       />
     </>
   )
